@@ -1,2 +1,2 @@
-# Larave mentorship repo
+# Laravel mentorship repo
 
