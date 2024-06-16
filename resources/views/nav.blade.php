@@ -9,15 +9,15 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::currentRouteName() == 'home') active @endif" href="{{ url('/') }}">Home</a>
+                    <a class="nav-link @active('home')" href="{{ url('/') }}">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::currentRouteName() == 'about') active @endif" href="{{ url('about') }}">About</a>
+                    <a class="nav-link @active('about')" href="{{ url('about') }}">About</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::currentRouteName() == 'contact') active @endif" href="{{ url('contact') }}">Contact</a>
+                    <a class="nav-link @active('contact')" href="{{ url('contact') }}">Contact</a>
                 </li>
 
             </ul>
