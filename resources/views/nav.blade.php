@@ -20,6 +20,10 @@
                     <a class="nav-link @active('contact')" href="{{ url('contact') }}">Contact</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link @active('blog*')" href="{{ route('blog') }}">Blog</a>
+                </li>
+
             </ul>
 
         </div>
