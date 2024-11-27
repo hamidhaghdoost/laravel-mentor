@@ -28,6 +28,11 @@
                     <a class="nav-link @active('blog.create')" href="{{ route('blog.create') }}">Create post</a>
                 </li>
 
+                {{-- categories --}}
+                <li class="nav-item">
+                    <a class="nav-link @active('categories*')" href="{{ route('categories.index') }}">Categories</a>
+                </li>
+
             </ul>
 
         </div>

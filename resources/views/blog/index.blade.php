@@ -12,6 +12,7 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Category</th>
                 <th>Created at</th>
                 <th>Updated at</th>
                 <th>Action</th>
@@ -22,6 +23,7 @@
                 <tr>
                     <td>{{ $post->id }}</td>
                     <td>{{ Str::limit($post->title, 20) }}</td>
+                    <td>{{ $post->category->name }}</td>
                     <td>{{ $post->created_at->format('Y-m-d H:i:s') }}</td>
                     <td>{{ $post->updated_at->format('Y-m-d H:i:s') }}</td>
                     <td>

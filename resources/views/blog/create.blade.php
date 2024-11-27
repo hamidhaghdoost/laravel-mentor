@@ -20,6 +20,18 @@
             <textarea name="body" id="body" class="form-control mt-1" rows="10">{{ old('body') }}</textarea>
         </div>
 
+        {{-- categories --}}
+        <div class="form-group mt-3">
+            <label for="category">Category</label>
+            <select name="category" id="category" class="form-control mt-1">
+                <option value="">Select a category</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+
         <button type="submit" class="btn btn-primary mt-3">Create post</button>
 
     </form>

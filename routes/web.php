@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,8 @@ Route::post('blog/create', [PostController::class, 'save'])->name('blog.save');
 Route::get('blog/{id}/delete', [PostController::class, 'delete'])->name('blog.delete');
 Route::get('blog/{id}/edit', [PostController::class, 'edit'])->name('blog.edit');
 Route::post('blog/{id}/edit', [PostController::class, 'update'])->name('blog.update');
+
+
+Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
+
 

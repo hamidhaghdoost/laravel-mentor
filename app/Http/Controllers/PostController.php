@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -23,7 +24,8 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('blog.create');
+        $data['categories'] = Category::all();
+        return view('blog.create', $data);
     }
 
     public function save(Request $request)
@@ -31,15 +33,18 @@ class PostController extends Controller
 
         $request->validate([
             'title' => 'required|max:255|min:3',
-            'body' => 'required'
+            'body' => 'required',
+            'category_id' => 'required|exists:categories,id'
         ]);
 
         $title = $request->title;
         $body = $request->body;
+        $category_id = $request->category_id;
 
         $post = new Post();
         $post->title = $title;
         $post->body = $body;
+        $post->category_id = $category_id;
         $post->save();
 
         return redirect()->route('blog')
