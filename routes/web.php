@@ -17,6 +17,8 @@ Route::get('about', function () {
 
 Route::get('blog', [PostController::class, 'index'])->name('blog');
 
-Route::get('post/{id}', function ($id) {
-    return view('post', ['id' => $id]);
-})->name('blog.view');
+Route::get('post/{id}', [PostController::class, 'view'])->name('blog.view');
+
+
+Route::get('blog/create', [PostController::class, 'create'])->name('blog.create');
+Route::post('blog/create', [PostController::class, 'save'])->name('blog.save');

@@ -21,7 +21,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link @active('blog*')" href="{{ route('blog') }}">Blog</a>
+                    <a class="nav-link @active('blog')" href="{{ route('blog') }}">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link @ctive('blog.create')" href="{{ route('blog.create') }}">Create post</a>
                 </li>
 
             </ul>

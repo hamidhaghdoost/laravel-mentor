@@ -1,8 +1,8 @@
 @extends('master')
 
-@section('title', 'Post')
+@section('title', $post->title)
 
 @section('content')
-    <h1>Post {{ $id }}</h1>
-    <p>This is post number {{ $id }}.</p>
+    <h1>{{ $post->title }}</h1>
+    <p>{{ $post->body }}</p>
 @endsection

@@ -14,4 +14,25 @@ class PostController extends Controller
             ->get();
         return view('blog', compact('posts'));
     }
+
+    public function view($id) {
+        $post = Post::findOrFail($id);
+        return view('post', compact('post'));
+    }
+
+    public function create() {
+        return view('blog.create');
+    }
+
+    public function save(Request $request) {
+        $title = $request->title;
+        $body = $request->body;
+
+        $post = new Post();
+        $post->title = $title;
+        $post->body = $body;
+        $post->save();
+
+        return redirect()->route('blog');
+    }
 }
