@@ -22,3 +22,7 @@ Route::get('post/{id}', [PostController::class, 'view'])->name('blog.view');
 
 Route::get('blog/create', [PostController::class, 'create'])->name('blog.create');
 Route::post('blog/create', [PostController::class, 'save'])->name('blog.save');
+Route::get('blog/{id}/delete', [PostController::class, 'delete'])->name('blog.delete');
+Route::get('blog/{id}/edit', [PostController::class, 'edit'])->name('blog.edit');
+Route::post('blog/{id}/edit', [PostController::class, 'update'])->name('blog.update');
+
