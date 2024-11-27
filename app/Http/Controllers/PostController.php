@@ -25,6 +25,12 @@ class PostController extends Controller
     }
 
     public function save(Request $request) {
+
+        $request->validate([
+            'title' => 'required|max:255|min:3',
+            'body' => 'required'
+        ]);
+
         $title = $request->title;
         $body = $request->body;
 
