@@ -31,3 +31,5 @@ Route::post('blog/{id}/edit', [PostController::class, 'update'])->name('blog.upd
 Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
 
 
+
+
