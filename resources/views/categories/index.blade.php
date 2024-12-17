@@ -15,6 +15,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Posts count</th>
                 <th>Created at</th>
                 <th>Updated at</th>
                 <th>Action</th>
@@ -25,6 +26,7 @@
                 <tr>
                     <td>{{ $category->id }}</td>
                     <td>{{ Str::limit($category->name, 20) }}</td>
+                    <td>{{ $category->posts->count() }}</td>
                     <td>{{ $category->created_at->format('Y-m-d H:i:s') }}</td>
                     <td>{{ $category->updated_at->format('Y-m-d H:i:s') }}</td>
                     <td>
