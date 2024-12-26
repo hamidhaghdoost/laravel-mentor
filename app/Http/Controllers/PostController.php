@@ -67,8 +67,12 @@ class PostController extends Controller
 
     public function edit($id)
     {
-        $post = Post::findOrFail($id);
-        return view('blog.edit', compact('post'));
+        $data['post'] = Post::findOrFail($id);
+        $data['categories'] = Category::all();
+        $data['tags'] = Tag::all();
+        $data['tag_ids'] = $data['post']->tags->pluck('id')->toArray();
+
+        return view('blog.edit', $data);
     }
 
     public function update($id, Request $request) {
@@ -76,14 +80,26 @@ class PostController extends Controller
 
         $request->validate([
             'title' => 'required|max:255|min:3',
-            'body' => 'required'
+            'body' => 'required',
+            'category' => 'required|exists:categories,id',
+            'tags' => 'array',
+            'tags.*' => 'integer|exists:tags,id'
         ]);
 
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->category_id = $request->category;
+        $post->tags()->sync($request->tags);
         $post->save();
 
         return redirect()->route('blog')
             ->with('message', 'Post updated successfully');
+    }
+
+
+    public function detachTag(Post $post, Tag $tag) {
+        $post->tags()->detach([$tag->id]);
+        return redirect()->back()
+            ->with('message', 'Tag detached successfully');
     }
 }

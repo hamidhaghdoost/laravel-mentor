@@ -27,6 +27,8 @@ Route::get('blog/{id}/delete', [PostController::class, 'delete'])->name('blog.de
 Route::get('blog/{id}/edit', [PostController::class, 'edit'])->name('blog.edit');
 Route::post('blog/{id}/edit', [PostController::class, 'update'])->name('blog.update');
 
+Route::get('blog/{post}/detach_tag/{tag}', [PostController::class, 'detachTag'])->name('blog.detach_tag');
+
 
 Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
 

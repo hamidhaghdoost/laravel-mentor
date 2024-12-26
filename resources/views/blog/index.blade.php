@@ -13,6 +13,7 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>Category</th>
+                <th>Tags</th>
                 <th>Created at</th>
                 <th>Updated at</th>
                 <th>Action</th>
@@ -24,6 +25,11 @@
                     <td>{{ $post->id }}</td>
                     <td>{{ Str::limit($post->title, 20) }}</td>
                     <td>{{ $post->category->name }}</td>
+                    <td>
+                        @foreach ($post->tags as $tag)
+                            <a href="{{ url('blog/' . $post->id . '/detach_tag/' . $tag->id) }}" class="badge rounded-pill bg-info">{{ $tag->name }}</a>
+                        @endforeach
+                    </td>
                     <td>{{ $post->created_at->format('Y-m-d H:i:s') }}</td>
                     <td>{{ $post->updated_at->format('Y-m-d H:i:s') }}</td>
                     <td>

@@ -11,11 +11,14 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
+
     <style>
         a.active {
             font-weight: bold;
         }
     </style>
+
+    @yield('style')
 </head>
 
 <body>
@@ -38,6 +41,8 @@
         @endif
 
         @yield('content')
+
+        @yield('script')
     </div>
 </body>
 
