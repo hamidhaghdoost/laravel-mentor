@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -34,4 +35,11 @@ Route::get('categories', [CategoryController::class, 'index'])->name('categories
 
 
 
+Route::prefix('auth')
+    ->controller(AuthController::class)
+    ->name('auth.')
+    ->group(function () {
+        Route::view('register', 'auth.register')->name('register');
+        Route::post('register', 'register')->name('save_register');
 
+    });

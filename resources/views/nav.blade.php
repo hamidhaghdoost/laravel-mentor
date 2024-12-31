@@ -33,6 +33,10 @@
                     <a class="nav-link @active('categories*')" href="{{ route('categories.index') }}">Categories</a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link @active('auth*')" href="{{ route('auth.register') }}">Register</a>
+                </li>
+
             </ul>
 
         </div>
